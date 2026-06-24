@@ -7,6 +7,18 @@ release-please from Conventional Commits.
 
 ## 0.1.0 (2026-06-24)
 
+
+### Features
+
+* initial release of speckit-roadmap extension (0.1.0) ([deb9126](https://github.com/srobroek/speckit-roadmap/commit/deb9126c2b726aa0fba61367dddf8ca20df1a3d7))
+
+
+### Bug Fixes
+
+* Windows-safe temp dir in Pester suite; split CI into parallel per-platform jobs ([db263fb](https://github.com/srobroek/speckit-roadmap/commit/db263fb102077e1c33e1afc7643ebd09567b0da5))
+
+## 0.1.0 (2026-06-24)
+
 Initial release.
 
 ### Features
