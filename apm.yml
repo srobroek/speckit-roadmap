@@ -5,8 +5,6 @@ author: Sjors Robroek
 dependencies:
   apm:
   - srobroek/agentic-packages/packages/core
-  - srobroek/agentic-packages/packages/mcp-codebase-memory
-  - srobroek/agentic-packages/packages/mcp-context7
   - srobroek/agentic-packages/packages/mcp-package-version
   - srobroek/agentic-packages/packages/mcp-repomix
   - srobroek/agentic-packages/packages/write-a-skill
