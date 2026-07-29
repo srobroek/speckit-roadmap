@@ -8,7 +8,6 @@ dependencies:
   - srobroek/agentic-packages/packages/mcp-codebase-memory
   - srobroek/agentic-packages/packages/mcp-context7
   - srobroek/agentic-packages/packages/mcp-package-version
-  - srobroek/agentic-packages/packages/mcp-repomix
   - srobroek/agentic-packages/packages/write-a-skill
   - srobroek/agentic-packages/packages/agentic-maintenance
   - srobroek/agentic-packages/packages/steering-tools-scripts
