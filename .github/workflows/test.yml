@@ -11,6 +11,24 @@ on:
 #   parity  — cross-platform JSON equality; needs BOTH interpreters, so it gets its
 #             own Linux job where bash + PowerShell install cleanly.
 jobs:
+  manifest:
+    name: Specify 1.0 manifest compatibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install Specify CLI 1.0 development release
+        run: uv tool install --from git+https://github.com/github/spec-kit.git specify-cli
+      - name: Install the extension in a clean project
+        run: |
+          repo="$PWD"
+          project="$(mktemp -d)"
+          cd "$project"
+          git init
+          specify init --here --force --non-interactive --ignore-agent-tools --integration codex
+          specify extension add "$repo" --dev
+          specify extension list | grep -F "Status: Enabled"
+
   bash:
     name: Bats (${{ matrix.os }})
     strategy:

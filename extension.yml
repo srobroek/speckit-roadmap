@@ -32,13 +32,15 @@ provides:
         Read-only reconciliation: detect drift between the roadmap ledger and
         specs on disk
   scripts:
-    - name: load-config.sh
+    - name: load-config
       file: scripts/bash/load-config.sh
       description: Load and validate roadmap extension configuration; emit a JSON contract
+      runtimes: [bash]
       executable: true
-    - name: load-config.ps1
+    - name: load-config-powershell
       file: scripts/powershell/load-config.ps1
       description: Load and validate roadmap extension configuration; emit a JSON contract
+      runtimes: [powershell]
       executable: true
   config:
     - name: roadmap-config.yml
