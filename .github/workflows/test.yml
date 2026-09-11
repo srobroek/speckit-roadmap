@@ -25,7 +25,7 @@ jobs:
           project="$(mktemp -d)"
           cd "$project"
           git init
-          specify init --here --force --non-interactive --integration codex
+          specify init --here --force --non-interactive --ignore-agent-tools --integration codex
           specify extension add "$repo" --dev
           specify extension list | grep -F "Status: Enabled"
 
