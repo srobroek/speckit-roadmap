@@ -1,0 +1,95 @@
+// Renovate config. Automerge (minor, patch, digest, lock file maintenance) waits for the CI check: manifest, bash, powershell and parity (workflow "test").
+// Majors and 0.x versions never automerge.
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "timezone": "Asia/Dubai",
+  "schedule": [
+    "before 6am on Monday"
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/vendor/**",
+    ".specify/**"
+  ],
+  "dependencyDashboard": {
+    "enabled": true
+  },
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "automerge": false,
+  "platformAutomerge": false,
+  "automergeType": "pr",
+  "ignoreTests": false,
+  "internalChecksFilter": "strict",
+  "minimumReleaseAge": "3 days",
+  "labels": [
+    "dependencies"
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": [
+      "security"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": "Automerge minor and patch updates (not 0.x) once CI passes",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
+    {
+      "description": "Automerge digest and pin updates once CI passes",
+      "matchUpdateTypes": [
+        "digest",
+        "pin",
+        "pinDigest"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "mise tools updates",
+      "groupName": "mise tools",
+      "matchManagers": [
+        "mise",
+        "asdf"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
+    },
+    {
+      "description": "github actions updates",
+      "groupName": "github actions",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "pinDigest"
+      ]
+    },
+    {
+      "description": "Major updates open their own PR and carry a label",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "labels": [
+        "dependencies",
+        "major"
+      ]
+    }
+  ]
+}
